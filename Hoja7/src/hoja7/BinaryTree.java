@@ -11,6 +11,8 @@ import java.util.Set;
  * and may have a right child. This class implements loop-free binary trees,
  * allowing shared subtrees.
  * 
+ * http://www.cis.upenn.edu/~matuszek/cit594-2008/Examples/BinaryTrees/src/BinaryTree.java
+ * 
  * @author David Matuszek
  * @version Jan 25, 2004
  * @param <V> The type of values contained in this BinaryTree.
