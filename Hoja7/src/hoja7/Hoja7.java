@@ -23,7 +23,7 @@ public class Hoja7 {
         arreglo[0] = new TreeMap();
         arreglo[0].put("jelly", "gelatina");
         System.out.print("\t" + arreglo[0]);
-        //BinaryTree<Map> tree = new BinaryTree<Map>(arreglo);
+        BinaryTree<Map> tree = new BinaryTree<Map>(arreglo[0]);
 
     }
     
