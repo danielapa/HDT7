@@ -48,7 +48,7 @@ public class Hoja7 {
                     System.out.println("Linea leida: " + line);
                     for (int x = 1; x<line.length()-1; x++){ //inicia en x = 1 y termina en largo-1 porque el primero y el ultimo son parentesis
                         if (line.charAt(x) != 44){
-                            if (idioma==true){
+                            if (idioma==true){ //se obtiene char por char para formar palabra
                                 char c = line.charAt(x);
                                 buildpalabrain.append(c);
                             }
@@ -70,7 +70,7 @@ public class Hoja7 {
                     //Imprimimos las palabras
                     System.out.println("Palabra en ingles: " + palabrain);
                     System.out.println("Palabra en espanol: " + palabraes);
-                    palabras[contador][0] = palabrain;
+                    palabras[contador][0] = palabrain; //agregan palabras en array que contiene en espaniol e ingles
                     palabras[contador][1] = palabraes;
                     contador++;
                 }
@@ -83,41 +83,24 @@ public class Hoja7 {
             Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Map arreglo[] = new TreeMap[contador];
-        
-        for (int x = 0; x<contador; x++){
-            arreglo[x] = new TreeMap();
-        }
+        Map arreglo[] = new TreeMap[contador]; //se crea un map con cada una de las palabras
         
         for(int y=0; y<contador; y++){
+            arreglo[y] = new TreeMap();
             arreglo[y].put(palabras[y][0], palabras[y][1]);
             System.out.println("\t" + arreglo[y]);
-                    
-            if(contador==0){
-
-            }
-            else if(contador!=0){
-
-            }
         }
-
+        
+        //se crea la raiz del arbol
         BinaryTree<Map> root = new BinaryTree<>(arreglo[0]);
         System.out.println("--");
-
-        for(int t=0; t<contador; t++){
-            arreglo[t].put(palabras[t][0], palabras[t][1]);
-
-            System.out.println("\t" + arreglo[t]);
-                    
-            if(contador==0){
-
-            }
-            else if(contador!=0){
-                BinaryTree<Map> tree1 = new BinaryTree<>(arreglo[t]);
-                root.setLeftChild(tree1);
-            }
+        BinaryTree<Map>[] hojastree; //se crean hojas con el numero de palabras restantes
+        hojastree = new BinaryTree[contador-1];
+        
+        for(int t=0; t<contador-1; t++){//aqui deberia de hacerse el compareTo para aniadir de forma in-order
+            hojastree[t] = new BinaryTree<>(arreglo[t+1]);
+            root.setLeftChild(hojastree[t]);
         }        
-        /*setRightChild();*/
         root.print();
     }
 }
