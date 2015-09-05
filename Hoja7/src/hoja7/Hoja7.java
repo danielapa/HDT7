@@ -6,6 +6,9 @@
 
 package hoja7;
 
+
+import java.util.*;
+
 /**
  *
  * @author Daniela
@@ -16,7 +19,12 @@ public class Hoja7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Map palabras = new TreeMap();
+        palabras.put("word", "palabra");
+        System.out.print("\t" + palabras);
+        
+        BinaryTree<Map> tree = new BinaryTree<Map>(palabras);
+
     }
     
 }
