@@ -117,8 +117,7 @@ public class Hoja7 {
                 root.setLeftChild(tree1);
             }
         }        
-        
+        /*setRightChild();*/
         root.print();
-
     }
 }
