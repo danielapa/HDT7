@@ -19,10 +19,11 @@ public class Hoja7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Map palabras = new TreeMap();
-        palabras.put("word", "palabra");
-        System.out.print("\t" + palabras);
-        BinaryTree<Map> tree = new BinaryTree<Map>(palabras);
+        Map arreglo[] = new TreeMap[20];
+        arreglo[0] = new TreeMap();
+        arreglo[0].put("jelly", "gelatina");
+        System.out.print("\t" + arreglo[0]);
+        //BinaryTree<Map> tree = new BinaryTree<Map>(arreglo);
 
     }
     
