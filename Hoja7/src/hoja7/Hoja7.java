@@ -25,11 +25,54 @@ public class Hoja7 {
          boolean hacer = true;
          File file = new File("diccionario.txt");
          int contador = 0;
+         int lines = 0;
+         
+         
+         try {
+             BufferedReader br2 = new BufferedReader(new FileReader(file));
+             lines = 0;
+             while (br2.readLine() != null) lines++;
+             br2.close();
+             System.out.println("Largo del archivo: " + lines + "\n");
+         }
+         catch (IOException e){
+             
+         }
+         String palabras[][] = new String[lines][2];
         try{
                     BufferedReader br = new BufferedReader(new FileReader(file));
                     try {
                         for(String line; (line = br.readLine()) != null; ){
-                            System.out.println("Palabra leida: " + line);
+                            StringBuilder buildpalabrain = new StringBuilder();
+                            StringBuilder buildpalabraes = new StringBuilder();
+                            boolean idioma = true; //Si esta en true, significa que es una palabra en ingles. Si esta en false, es una palabra en espanol.
+                            System.out.println("Linea leida: " + line);
+                            for (int x = 1; x<line.length()-1; x++){ //inicia en x = 1 y termina en largo-1 porque el primero y el ultimo son parentesis
+                                if (line.charAt(x) != 44){
+                                    if (idioma==true){
+                                        char c = line.charAt(x);
+                                        buildpalabrain.append(c);
+                                    }
+                                    if (idioma==false){
+                                        char c = line.charAt(x);
+                                        buildpalabraes.append(c);
+                                    }
+                                }
+                                if (line.charAt(x) == 44){
+                                    //Si es una coma, se cambia el idioma a espanol porque la palabra que sigue es la traduccion.
+                                    idioma = false;
+                                }
+                                else {
+                                    //Si es un espacio, no se agrega
+                                }
+                            }
+                            String palabrain = buildpalabrain.toString();
+                            String palabraes = buildpalabraes.toString();
+                            //Imprimimos las palabras
+                            System.out.println("Palabra en ingles: " + palabrain);
+                            System.out.println("Palabra en espanol: " + palabraes);
+                            palabras[contador][0] = palabrain;
+                            palabras[contador][1] = palabraes;
                             contador++;
                         }
                     }
@@ -41,16 +84,21 @@ public class Hoja7 {
                 Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
                 }
         
-        
-        
         Map arreglo[] = new TreeMap[contador];
         for (int x = 0; x<contador; x++){
             arreglo[x] = new TreeMap();
         }
-        arreglo[0].put("jelly", "gelatina");
-        System.out.print("\t" + arreglo[0]);
-        BinaryTree<Map> tree = new BinaryTree<Map>(arreglo[0]);
+        arreglo[0].put(palabras[0][0], palabras[0][1]);
+        System.out.println("\t" + arreglo[0]);
+        arreglo[1].put(palabras[1][0], palabras[1][1]);
+        BinaryTree<Map> root = new BinaryTree<>(arreglo[0]);
+        BinaryTree<Map> tree1 = new BinaryTree<>(arreglo[1]);
+        System.out.println("--");
+        root.setLeftChild(tree1);
+        root.print();
 
     }
+    
+    
     
 }
