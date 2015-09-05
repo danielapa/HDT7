@@ -22,7 +22,6 @@ public class Hoja7 {
         Map palabras = new TreeMap();
         palabras.put("word", "palabra");
         System.out.print("\t" + palabras);
-        
         BinaryTree<Map> tree = new BinaryTree<Map>(palabras);
 
     }
