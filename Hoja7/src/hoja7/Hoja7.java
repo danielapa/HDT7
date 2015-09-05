@@ -8,6 +8,9 @@ package hoja7;
 
 
 import java.util.*;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,8 +22,31 @@ public class Hoja7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Map arreglo[] = new TreeMap[20];
-        arreglo[0] = new TreeMap();
+         boolean hacer = true;
+         File file = new File("diccionario.txt");
+         int contador = 0;
+        try{
+                    BufferedReader br = new BufferedReader(new FileReader(file));
+                    try {
+                        for(String line; (line = br.readLine()) != null; ){
+                            System.out.println("Palabra leida: " + line);
+                            contador++;
+                        }
+                    }
+                    catch(IOException ex) {
+                        Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+		catch(FileNotFoundException ex) {
+                Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+        
+        
+        Map arreglo[] = new TreeMap[contador];
+        for (int x = 0; x<contador; x++){
+            arreglo[x] = new TreeMap();
+        }
         arreglo[0].put("jelly", "gelatina");
         System.out.print("\t" + arreglo[0]);
         BinaryTree<Map> tree = new BinaryTree<Map>(arreglo[0]);
