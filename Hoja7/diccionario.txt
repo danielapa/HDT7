@@ -1,2 +1,2 @@
 (house,casa)
-(perro,dog)
+(dog,perro)
