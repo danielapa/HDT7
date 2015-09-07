@@ -1,2 +1,19 @@
-(house,casa)
-(dog,perro)
+			(house,casa)
+		(dog,perro)(jelly,gelatina)
+	(cell,celular)		(star,estrella)
+(air,aire)
+
+temp=house
+cell
+compare house con cell
+si es mayor house que cell, true
+si es null
+insertar
+si es mayor house que cell, true (compare)
+temp.setLeftChild
+si es menor house que cell, false (compare)
+temp.setRightChild
+si tiene hijos
+	temp = temp.getLeftChild
+	compare dog con cell
+	si dog es mayor que cell

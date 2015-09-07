@@ -10,35 +10,27 @@ import java.util.*;
  *
  * @author Daniela
  */
-public class Palabra implements Comparable<Palabra>{
-    private String ingles;
-    private String espan;
-    
-    public Palabra(String ing, String espa) {
-        this.ingles = ing;
-        this.espan = espa;
+public class Palabra extends TreeMap implements Comparable<Palabra>{
 
-    }  
-    
-    public String getIngles() {
-        return ingles;
-    }
-    
-    public String getEspan() {
-        return espan;
-    }
-
-    public void setIngles(String ing) {
-        this.ingles = ing;
-    }
-    
-    public void setEspan(String espa) {
-        this.espan = espa;
-    } 
+    String llave, word;
     
     @Override
-    public int compareTo(Palabra o) {
-        return ingles.compareTo(o.ingles);
+    public Object put(Object key, Object value) {
+        llave = (String)(Object)key;
+        return super.put(key, value); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Object get(Object key) {
+        return super.get(key); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public int compareTo(String word) {
+        return llave.compareTo(word);
+    }
+
+    @Override
+    public int compareTo(Palabra o) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

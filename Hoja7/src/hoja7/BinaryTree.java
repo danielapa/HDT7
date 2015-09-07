@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.*;
 
 /**
  * A BinaryTree consists of "nodes"--each "node" is itself a BinaryTree.
@@ -440,5 +441,34 @@ public class BinaryTree<V> {
         BinaryTree<V> temp = this.leftChild;
         this.setLeftChild(this.rightChild);
         this.setRightChild(temp);
+    }
+    
+    public void insertar(BinaryTree<V> subarbol){
+        if(this.compareTo(this, subarbol)){
+            if(this.getLeftChild()==null){
+                this.setLeftChild(subarbol);
+            }
+            else{
+                insertar(this.getLeftChild());
+            }
+        }
+        else{
+            if(this.getRightChild()==null){
+                this.setRightChild(subarbol);                
+            }
+            else{
+                insertar(this.getRightChild());
+            }
+        }
+    }
+        
+    public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){
+        boolean comparacion = false;
+        Map palabrapadre = (Map) padre.getValue();
+        Map palabrahijo = (Map) hijo.getValue();
+        
+        palabrahijo.get();
+        
+        return comparacion;
     }
 }

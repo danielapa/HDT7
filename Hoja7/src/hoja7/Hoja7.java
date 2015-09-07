@@ -92,15 +92,17 @@ public class Hoja7 {
         }
         
         //se crea la raiz del arbol
-        BinaryTree<Map> root = new BinaryTree<>(arreglo[0]);
         System.out.println("--");
         BinaryTree<Map>[] hojastree; //se crean hojas con el numero de palabras restantes
-        hojastree = new BinaryTree[contador-1];
+        hojastree = new BinaryTree[contador];
+        BinaryTree<Map> root = new BinaryTree<>(arreglo[0]);
         
-        for(int t=0; t<contador-1; t++){//aqui deberia de hacerse el compareTo para aniadir de forma in-order
-            hojastree[t] = new BinaryTree<>(arreglo[t+1]);
-            root.setLeftChild(hojastree[t]);
-        }        
+        for(int t=1;t<contador;t++){
+            root.insertar(hojastree[t]);
+        } 
+        
+       // System.out.println(hojastree[0].compareTo(""));
+        
         root.print();
     }
 }
