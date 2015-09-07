@@ -99,7 +99,7 @@ public class Hoja7 {
         
         for(int t=1;t<contador;t++){
             hojastree[t] = new BinaryTree(arreglo[t]);
-            root.insertar(hojastree[t]);
+            root.insertar(root,hojastree[t]);
         } 
         
         root.print();

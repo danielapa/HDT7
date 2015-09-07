@@ -446,24 +446,31 @@ public class BinaryTree<V> {
         this.setRightChild(temp);
     }
     
-    public void insertar(BinaryTree<V> subarbol){
-        if(this.compareTo(this, subarbol)==true){
-            System.out.println("Babosada: " + this.getLeftChild());
-            if(this.getLeftChild()==null){
+    public void insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
+        if(papa.compareTo(papa, subarbol)==true){
+            System.out.println("Babosada: " + papa.getLeftChild());
+            if(papa.getLeftChild()==null){
                 System.out.println("------");
-                this.setLeftChild(subarbol);
+                papa.setLeftChild(subarbol);
+                
             }
             else{
-                insertar(this.getLeftChild());
+                BinaryTree<V> temp = papa.getLeftChild(); //Guardamos el nuevo papa 
+                papa = temp;
+                insertar(papa,subarbol);
             }
         }
         
-        else{
-            if(this.getRightChild()==null){
-                this.setRightChild(subarbol);                
+        else{ //depende del boolean que mandemos
+            if(papa.getRightChild()==null){
+                System.out.println("------");
+                papa.setRightChild(subarbol);
+                
             }
             else{
-                insertar(this.getRightChild());
+                BinaryTree<V> temp = papa.getRightChild(); //Guardamos el nuevo papa 
+                papa = temp;
+                insertar(papa,subarbol);
             }
         }
     }

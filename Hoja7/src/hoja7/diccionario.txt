@@ -1,0 +1,3 @@
+(jelly, gelatina)
+(cellphone, celular)
+(pillow, almohada)
