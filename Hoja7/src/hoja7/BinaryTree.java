@@ -495,6 +495,7 @@ public class BinaryTree<V> {
             String nombrepadre = (String) palabrapadre.get(algopadre);
 
             
+            //Para evitar OutofBounds en el for, solo recorreremos hasta el largo de la palabra mas corta.
             int largofor=0;
             if (nombrehijo.length()>nombrepadre.length()){
                 largofor = nombrepadre.length();
