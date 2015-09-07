@@ -494,9 +494,35 @@ public class BinaryTree<V> {
             Object  algopadre = palabrapadre.firstKey();
             String nombrepadre = (String) palabrapadre.get(algopadre);
 
+            
+            int largofor=0;
+            if (nombrehijo.length()>nombrepadre.length()){
+                largofor = nombrepadre.length();
+            }
+            else if (nombrehijo.length()<nombrepadre.length()){
+                largofor = nombrehijo.length();
+            }
+            for (int x = 0; x<largofor; x++){
+                String chijo = Character.toString(nombrehijo.charAt(x));
+                String cpadre = Character.toString(nombrepadre.charAt(x));
+                if (chijo.compareTo(cpadre)>0){
+                    comparacion = true;
+                }
+                if (chijo.compareTo(cpadre)<0){
+                    comparacion = false;
+                }
+                else {
+                    //Si son iguales, pasamos a la siguiente letra
+                }
+            }
             System.out.println("Hijo: "+nombrehijo+" Padre "+nombrepadre);
         }
         
         return comparacion;
     }
 }
+
+/*if (line.charAt(x) != 44){
+                            if (idioma==true){ //se obtiene char por char para formar palabra
+                                char c = line.charAt(x);
+                                buildpalabrain.append(c);*/
