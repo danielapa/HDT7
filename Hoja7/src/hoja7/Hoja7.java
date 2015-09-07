@@ -70,8 +70,8 @@ public class Hoja7 {
                     //Imprimimos las palabras
                     System.out.println("Palabra en ingles: " + palabrain);
                     System.out.println("Palabra en espanol: " + palabraes);
-                    palabras[contador][0] = palabrain; //agregan palabras en array que contiene en espaniol e ingles
-                    palabras[contador][1] = palabraes;
+                    palabras[contador][1] = palabrain; //agregan palabras en array que contiene en espaniol e ingles
+                    palabras[contador][0] = palabraes;
                     contador++;
                 }
             }
@@ -98,10 +98,9 @@ public class Hoja7 {
         BinaryTree<Map> root = new BinaryTree<>(arreglo[0]);
         
         for(int t=1;t<contador;t++){
+            hojastree[t] = new BinaryTree(arreglo[t]);
             root.insertar(hojastree[t]);
         } 
-        
-       // System.out.println(hojastree[0].compareTo(""));
         
         root.print();
     }
