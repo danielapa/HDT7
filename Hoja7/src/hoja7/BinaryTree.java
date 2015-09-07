@@ -46,7 +46,9 @@ public class BinaryTree<V> {
      * @param value The value to be placed in the root.
      */
     public BinaryTree(V value) {
+        
         this(value, null, null);
+        System.out.println("Vainaritri");
     }
 
     
@@ -56,6 +58,7 @@ public class BinaryTree<V> {
      * @return The value in this node.
      */
     public V getValue() {
+            System.out.println(value);
         return value;
     }
     
@@ -444,14 +447,17 @@ public class BinaryTree<V> {
     }
     
     public void insertar(BinaryTree<V> subarbol){
-        if(this.compareTo(this, subarbol)){
+        if(this.compareTo(this, subarbol)==true){
+            System.out.println("Babosada: " + this.getLeftChild());
             if(this.getLeftChild()==null){
+                System.out.println("------");
                 this.setLeftChild(subarbol);
             }
             else{
                 insertar(this.getLeftChild());
             }
         }
+        
         else{
             if(this.getRightChild()==null){
                 this.setRightChild(subarbol);                
@@ -463,11 +469,26 @@ public class BinaryTree<V> {
     }
         
     public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){
-        boolean comparacion = false;
-        Map palabrapadre = (Map) padre.getValue();
-        Map palabrahijo = (Map) hijo.getValue();
+        boolean comparacion = true;
+              
+        if((hijo.getValue()==null) || (padre.getValue()==null))
+        {
+            System.out.println("Null");
+        }
         
-        palabrahijo.get();
+        else{
+            TreeMap palabrapadre = (TreeMap) padre.getValue();
+            System.out.println("PADRE");
+            TreeMap palabrahijo = (TreeMap) hijo.getValue();
+            
+            Object  algohijo = palabrahijo.firstKey();
+            String nombrehijo = (String) palabrahijo.get(algohijo);
+
+            Object  algopadre = palabrapadre.firstKey();
+            String nombrepadre = (String) palabrapadre.get(algopadre);
+
+            System.out.println("Hijo: "+nombrehijo+" Padre "+nombrepadre);
+        }
         
         return comparacion;
     }
