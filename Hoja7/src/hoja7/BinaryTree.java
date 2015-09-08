@@ -26,6 +26,7 @@ public class BinaryTree<V> {
     public V value;
     private BinaryTree<V> leftChild;
     private BinaryTree<V> rightChild;
+    private boolean comparacion;
 
     /**
      * Constructor for BinaryTree.
@@ -47,7 +48,6 @@ public class BinaryTree<V> {
      */
     public BinaryTree(V value) {
         this(value, null, null);
-        System.out.println("Vainaritri");
     }
 
     
@@ -57,7 +57,6 @@ public class BinaryTree<V> {
      * @return The value in this node.
      */
     public V getValue() {
-        System.out.println(value);
         return value;
     }
     
@@ -446,7 +445,8 @@ public class BinaryTree<V> {
     }
     
     public void insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
-        if(papa.compareTo(papa, subarbol)==true){
+        boolean mayor = papa.compareTo(papa, subarbol);
+        if(mayor==true){ //si papa es mayor que el subarbol, se agrega del lado izquierdo
             System.out.println("Babosada: " + papa.getLeftChild());
             if(papa.getLeftChild()==null){
                 System.out.println("------");
@@ -460,7 +460,7 @@ public class BinaryTree<V> {
             }
         }
         
-        else if(papa.compareTo(papa, subarbol)==false){ //depende del boolean que mandemos
+        else if(mayor==false){ //si papa es menor que el subarbol, se agrega del lado derecho
             if(papa.getRightChild()==null){
                 System.out.println("------");
                 papa.setRightChild(subarbol);
@@ -475,7 +475,7 @@ public class BinaryTree<V> {
     }
         
     public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){
-        boolean comparacion = true;
+        //boolean comparacion = true;
         if((hijo.getValue()==null) || (padre.getValue()==null))
         {
             System.out.println("Null");
@@ -494,15 +494,17 @@ public class BinaryTree<V> {
             
             //Para evitar OutofBounds en el for, solo recorreremos hasta el largo de la palabra mas corta.
             int largofor=0;
-            if (nombrehijo.length()>nombrepadre.length()){
+            if (nombrehijo.length()>=nombrepadre.length()){
                 largofor = nombrepadre.length();
             }
             else if (nombrehijo.length()<nombrepadre.length()){
                 largofor = nombrehijo.length();
             }
+
             for (int x = 0; x<largofor; x++){
                 String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase();
                 String cpadre = Character.toString(nombrepadre.charAt(x)).toUpperCase();
+                System.out.println(chijo.compareTo(cpadre));
                 if (chijo.compareTo(cpadre)>0){
                     comparacion = false;
                     break;
@@ -517,7 +519,7 @@ public class BinaryTree<V> {
             }
             System.out.println("Hijo: "+nombrehijo+" Padre "+nombrepadre);
         }
-        
+        System.out.println(comparacion);
         return comparacion;
     }
     
