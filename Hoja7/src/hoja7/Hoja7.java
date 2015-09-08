@@ -106,12 +106,83 @@ public class Hoja7 {
         root.inOrder(root);
         System.out.println("############");
         
-        String oracion[] = new String[3]; //palabras de la oracion que se tiene en el archivo
-        int contadororacion=3; //numero de palabras que se tienen
-        for(int t=0;t<contadororacion;t++){
-           root.buscar(oracion[t]);
-        }         
         
+        /*String leol = "shoe";
+        String coso = root.buscar(root, leol);
+        System.out.println(coso);
+        if (coso == null){
+            System.out.print("*" + leol + "*");
+        }
+        else {
+            System.out.print(leol);
+        }
+        
+        System.out.println("---------");
+        leol = "air";
+        coso = root.buscar(root, leol);
+        System.out.println(coso);
+        if (coso == null){
+            System.out.print("*" + leol + "*");
+        }
+        else {
+            System.out.print(leol);
+        }
+        */
         root.print();
+        
+        System.out.println("\n Traductada \n");
+        
+        //Segundo reader
+        File archivo = new File("texto.txt");
+        int contadorpal = 0;
+        StringBuilder buildpalabra = new StringBuilder();
+        try{
+            BufferedReader br2 = new BufferedReader(new FileReader(archivo));
+            try {
+                for(String line; (line = br2.readLine()) != null; ){
+                    for (int x = 0; x<line.length(); x++){
+                        //System.out.println(line);
+                        
+                        //contadorpal = 0;
+                        if (line.charAt(x)!= 32){
+                            char d = line.charAt(x);
+                            buildpalabra.append(d);
+                            //System.out.println(d);
+                            contadorpal++;
+                        }
+
+                        if ((line.charAt(x) == 32) && contadorpal>0){
+                            //System.out.println("espacio");
+                            //mandamos la palabra
+                            String palabramandada = buildpalabra.toString();
+                            //System.out.println("Palabra mandada: " + palabramandada);
+                            String busqueda = root.buscar(root, palabramandada);
+                           //System.out.println("Busqueda " + busqueda);
+                            if (busqueda == null){
+                                System.out.print("*" + palabramandada + "*");
+                            }
+                            else {
+                                System.out.print(busqueda);
+                            }
+                            buildpalabra = new StringBuilder();
+                            contadorpal = 0;
+                        }
+                        
+                    }
+                    System.out.println();
+                }
+            }
+            catch(IOException ex) {
+                Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+	catch(FileNotFoundException ex) {
+            Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
     }
 }

@@ -27,6 +27,8 @@ public class BinaryTree<V> {
     private BinaryTree<V> leftChild;
     private BinaryTree<V> rightChild;
     private boolean comparacion;
+    private boolean funcionamiento = true;
+    String retorno;
 
     /**
      * Constructor for BinaryTree.
@@ -531,9 +533,35 @@ public class BinaryTree<V> {
         }
     }
     
-    public void buscar(String oracion){
-        
+    public String buscar(BinaryTree<V> raiz, String palabra){
+        funcionamiento = true;
+        if (funcionamiento==true){
+            if (raiz != null){
+
+                if (funcionamiento == true){
+                    buscar(raiz.getLeftChild(), palabra);
+                }
+                TreeMap palabracomp = (TreeMap) raiz.getValue();
+                Object  algohijo = palabracomp.firstKey();
+                String nombrehijo = (String) palabracomp.get(algohijo);
+                if (nombrehijo.equals(palabra)){
+                    Object algoespanol = palabracomp.firstKey();
+                    retorno = (String) algoespanol;
+                    funcionamiento = false;
+                    
+                }
+
+                //System.out.println(raiz.getValue());
+                if (funcionamiento == true){
+                    buscar(raiz.getRightChild(), palabra);
+                }
+
+            }
+            if ((raiz == null) && (funcionamiento == true)){
+                retorno = null;
+            }
+        }
+        return retorno;
     }
-    
 }
 
