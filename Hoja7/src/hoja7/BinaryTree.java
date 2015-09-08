@@ -46,7 +46,6 @@ public class BinaryTree<V> {
      * @param value The value to be placed in the root.
      */
     public BinaryTree(V value) {
-        
         this(value, null, null);
         System.out.println("Vainaritri");
     }
@@ -58,7 +57,7 @@ public class BinaryTree<V> {
      * @return The value in this node.
      */
     public V getValue() {
-            System.out.println(value);
+        System.out.println(value);
         return value;
     }
     
@@ -461,7 +460,7 @@ public class BinaryTree<V> {
             }
         }
         
-        else{ //depende del boolean que mandemos
+        else if(papa.compareTo(papa, subarbol)==false){ //depende del boolean que mandemos
             if(papa.getRightChild()==null){
                 System.out.println("------");
                 papa.setRightChild(subarbol);
@@ -492,7 +491,6 @@ public class BinaryTree<V> {
 
             Object  algopadre = palabrapadre.firstKey();
             String nombrepadre = (String) palabrapadre.get(algopadre);
-
             
             //Para evitar OutofBounds en el for, solo recorreremos hasta el largo de la palabra mas corta.
             int largofor=0;
@@ -506,10 +504,12 @@ public class BinaryTree<V> {
                 String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase();
                 String cpadre = Character.toString(nombrepadre.charAt(x)).toUpperCase();
                 if (chijo.compareTo(cpadre)>0){
-                    comparacion = true;
-                }
-                if (chijo.compareTo(cpadre)<0){
                     comparacion = false;
+                    break;
+                }
+                else if (chijo.compareTo(cpadre)<0){
+                    comparacion = true;
+                    break;
                 }
                 else {
                     //Si son iguales, pasamos a la siguiente letra
@@ -523,16 +523,16 @@ public class BinaryTree<V> {
     
     public void inOrder(BinaryTree<V> raiz){
         //TreeMap shoot = (TreeMap) raiz.getValue();
+        /*System.out.println("INORDER");
+        System.out.println("Padre mayor: " + raiz.getValue() + "\n");
+        System.out.println("Left child: " + raiz.getLeftChild() + "\n");
+        System.out.println("Right chuld: " + raiz.getRightChild() + "\n");*/
+        
         if (raiz != null){
             inOrder(raiz.getLeftChild());
             System.out.println(raiz.getValue());
             inOrder(raiz.getRightChild());
         }
-        if (raiz == null){
-            System.out.println("Soy null :D");
-        }
     }
-    
-    
 }
 
