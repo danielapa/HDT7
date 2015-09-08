@@ -522,10 +522,14 @@ public class BinaryTree<V> {
     }
     
     public void inOrder(BinaryTree<V> raiz){
+        //TreeMap shoot = (TreeMap) raiz.getValue();
         if (raiz != null){
             inOrder(raiz.getLeftChild());
             System.out.println(raiz.getValue());
             inOrder(raiz.getRightChild());
+        }
+        if (raiz == null){
+            System.out.println("Soy null :D");
         }
     }
     
