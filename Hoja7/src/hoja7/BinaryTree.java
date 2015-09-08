@@ -449,9 +449,7 @@ public class BinaryTree<V> {
     public void insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
         boolean mayor = papa.compareTo(papa, subarbol);
         if(mayor==true){ //si papa es mayor que el subarbol, se agrega del lado izquierdo
-            System.out.println("Babosada: " + papa.getLeftChild());
             if(papa.getLeftChild()==null){
-                System.out.println("------");
                 papa.setLeftChild(subarbol);
                 
             }
@@ -464,7 +462,6 @@ public class BinaryTree<V> {
         
         else if(mayor==false){ //si papa es menor que el subarbol, se agrega del lado derecho
             if(papa.getRightChild()==null){
-                System.out.println("------");
                 papa.setRightChild(subarbol);
                 
             }
@@ -480,12 +477,11 @@ public class BinaryTree<V> {
         //boolean comparacion = true;
         if((hijo.getValue()==null) || (padre.getValue()==null))
         {
-            System.out.println("Null");
+            
         }
         
         else{
             TreeMap palabrapadre = (TreeMap) padre.getValue();
-            System.out.println("PADRE");
             TreeMap palabrahijo = (TreeMap) hijo.getValue();
             
             Object  algohijo = palabrahijo.firstKey();
@@ -506,7 +502,7 @@ public class BinaryTree<V> {
             for (int x = 0; x<largofor; x++){
                 String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase();
                 String cpadre = Character.toString(nombrepadre.charAt(x)).toUpperCase();
-                System.out.println(chijo.compareTo(cpadre));
+
                 if (chijo.compareTo(cpadre)>0){
                     comparacion = false;
                     break;
@@ -519,9 +515,7 @@ public class BinaryTree<V> {
                     //Si son iguales, pasamos a la siguiente letra
                 }
             }
-            System.out.println("Hijo: "+nombrehijo+" Padre "+nombrepadre);
         }
-        System.out.println(comparacion);
         return comparacion;
     }
     

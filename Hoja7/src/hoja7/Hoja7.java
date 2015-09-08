@@ -45,7 +45,7 @@ public class Hoja7 {
                     StringBuilder buildpalabrain = new StringBuilder();
                     StringBuilder buildpalabraes = new StringBuilder();
                     boolean idioma = true; //Si esta en true, significa que es una palabra en ingles. Si esta en false, es una palabra en espanol.
-                    System.out.println("Linea leida: " + line);
+
                     for (int x = 1; x<line.length()-1; x++){ //inicia en x = 1 y termina en largo-1 porque el primero y el ultimo son parentesis
                         if (line.charAt(x) != 44){
                             if (idioma==true){ //se obtiene char por char para formar palabra
@@ -88,7 +88,6 @@ public class Hoja7 {
         for(int y=0; y<contador; y++){
             arreglo[y] = new TreeMap();
             arreglo[y].put(palabras[y][0], palabras[y][1]);
-            System.out.println("\t" + arreglo[y]);
         }
         
         //se crea la raiz del arbol
@@ -102,32 +101,10 @@ public class Hoja7 {
             root.insertar(root,hojastree[t]);
         } 
         
-        System.out.println("############");
+        System.out.println("Palabras Ordenadas:");
         root.inOrder(root);
         System.out.println("############");
         
-        
-        /*String leol = "shoe";
-        String coso = root.buscar(root, leol);
-        System.out.println(coso);
-        if (coso == null){
-            System.out.print("*" + leol + "*");
-        }
-        else {
-            System.out.print(leol);
-        }
-        
-        System.out.println("---------");
-        leol = "air";
-        coso = root.buscar(root, leol);
-        System.out.println(coso);
-        if (coso == null){
-            System.out.print("*" + leol + "*");
-        }
-        else {
-            System.out.print(leol);
-        }
-        */
         root.print();
         
         System.out.println("\n Traductada \n");
