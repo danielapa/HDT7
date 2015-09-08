@@ -549,7 +549,11 @@ public class BinaryTree<V> {
                 TreeMap palabracomp = (TreeMap) raiz.getValue();
                 Object  algohijo = palabracomp.firstKey();
                 String nombrehijo = (String) palabracomp.get(algohijo);
-                if (nombrehijo.equals(palabra)){
+
+                String nombrehijoMay = nombrehijo.toUpperCase();
+                String palabraMay = palabra.toUpperCase();
+                
+                if (nombrehijoMay.equals(palabraMay)){
                     Object algoespanol = palabracomp.firstKey();
                     retorno = (String) algoespanol;
                     funcionamiento = false;
