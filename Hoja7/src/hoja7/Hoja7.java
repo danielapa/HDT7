@@ -148,23 +148,19 @@ public class Hoja7 {
                         if (line.charAt(x)!= 32){
                             char d = line.charAt(x);
                             buildpalabra.append(d);
-                            //System.out.println(d);
                             contadorpal++;
                         }
                         
                         if ((line.charAt(x) == 32) && contadorpal>0){
-                            //System.out.println("espacio");
                             //mandamos la palabra
                             String palabramandada = buildpalabra.toString();
-                            //System.out.print("Palabra mandada: " + palabramandada + " ");
-                            //System.out.println("Palabra mandada: " + palabramandada);
                             String busqueda = root.buscar(root, palabramandada);
-                           //System.out.println("Busqueda " + busqueda);
+
                             if (busqueda == null){
-                                System.out.print("*" + palabramandada + "*");
+                                System.out.print(" *" + palabramandada + "* ");
                             }
                             else {
-                                System.out.print(busqueda);
+                                System.out.print(" "+busqueda+" ");
                             }
                             buildpalabra = new StringBuilder(); //Reseteamos el StringBuilder
                             contadorpal = 0;
@@ -173,10 +169,10 @@ public class Hoja7 {
                             String palabramandada = buildpalabra.toString();
                             String busqueda = root.buscar(root, palabramandada);
                             if (busqueda == null){
-                                System.out.print("*" + palabramandada + "*");
+                                System.out.print(" *" + palabramandada + "* ");
                             }
                             else {
-                                System.out.print(busqueda);
+                                System.out.print(" "+busqueda+" ");
                             }
                         }
                         
@@ -191,10 +187,5 @@ public class Hoja7 {
 	catch(FileNotFoundException ex) {
             Logger.getLogger(Hoja7.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
-        
     }
 }

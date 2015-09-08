@@ -528,7 +528,12 @@ public class BinaryTree<V> {
     public void inOrder(BinaryTree<V> raiz){
         if (raiz != null){
             inOrder(raiz.getLeftChild());
-            System.out.println(raiz.getValue());
+            
+            TreeMap palabraImprimir = (TreeMap) raiz.getValue();
+            Object  objPalabra = palabraImprimir.firstKey();
+            String nombre = (String) palabraImprimir.get(objPalabra);
+            System.out.println("("+nombre+","+palabraImprimir.firstKey()+")");
+            
             inOrder(raiz.getRightChild());
         }
     }
@@ -550,8 +555,6 @@ public class BinaryTree<V> {
                     funcionamiento = false;
                     
                 }
-
-                //System.out.println(raiz.getValue());
                 if (funcionamiento == true){
                     buscar(raiz.getRightChild(), palabra);
                 }
