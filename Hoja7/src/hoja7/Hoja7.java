@@ -101,7 +101,10 @@ public class Hoja7 {
             hojastree[t] = new BinaryTree(arreglo[t]);
             root.insertar(root,hojastree[t]);
         } 
-        
+        System.out.println("############");
+        root.inOrder(root);
+        System.out.println("############");
+
         root.print();
     }
 }
