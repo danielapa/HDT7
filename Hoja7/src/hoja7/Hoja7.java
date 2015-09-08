@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Hoja de trabajo 7 
+ * Arboles Binarios
+ * Juan Diego Benitez - 14124
+ * Daniela Pocasangre - 14612
+ * Diccionario ingles a espaniol.
  */
 
 package hoja7;
@@ -14,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Daniela
+ * @author Daniela Pocasangre, Juan Diego Benitez
  */
 public class Hoja7 {
 
