@@ -166,7 +166,7 @@ public class Hoja7 {
                             else {
                                 System.out.print(busqueda);
                             }
-                            buildpalabra = new StringBuilder();
+                            buildpalabra = new StringBuilder(); //Reseteamos el StringBuilder
                             contadorpal = 0;
                         }
                         if( (x == (line.length()-1)) && (line.charAt(line.length()-1) != 32)){
