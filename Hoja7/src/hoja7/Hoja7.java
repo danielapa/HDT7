@@ -141,6 +141,7 @@ public class Hoja7 {
             try {
                 for(String line; (line = br2.readLine()) != null; ){
                     for (int x = 0; x<line.length(); x++){
+                       // System.out.println("Last char: " + line.charAt(line.length()-1));
                         //System.out.println(line);
                         
                         //contadorpal = 0;
@@ -150,11 +151,12 @@ public class Hoja7 {
                             //System.out.println(d);
                             contadorpal++;
                         }
-
+                        
                         if ((line.charAt(x) == 32) && contadorpal>0){
                             //System.out.println("espacio");
                             //mandamos la palabra
                             String palabramandada = buildpalabra.toString();
+                            //System.out.print("Palabra mandada: " + palabramandada + " ");
                             //System.out.println("Palabra mandada: " + palabramandada);
                             String busqueda = root.buscar(root, palabramandada);
                            //System.out.println("Busqueda " + busqueda);
@@ -166,6 +168,16 @@ public class Hoja7 {
                             }
                             buildpalabra = new StringBuilder();
                             contadorpal = 0;
+                        }
+                        if( (x == (line.length()-1)) && (line.charAt(line.length()-1) != 32)){
+                            String palabramandada = buildpalabra.toString();
+                            String busqueda = root.buscar(root, palabramandada);
+                            if (busqueda == null){
+                                System.out.print("*" + palabramandada + "*");
+                            }
+                            else {
+                                System.out.print(busqueda);
+                            }
                         }
                         
                     }
