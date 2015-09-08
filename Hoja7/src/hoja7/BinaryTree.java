@@ -477,7 +477,6 @@ public class BinaryTree<V> {
         
     public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){
         boolean comparacion = true;
-              
         if((hijo.getValue()==null) || (padre.getValue()==null))
         {
             System.out.println("Null");
@@ -504,8 +503,8 @@ public class BinaryTree<V> {
                 largofor = nombrehijo.length();
             }
             for (int x = 0; x<largofor; x++){
-                String chijo = Character.toString(nombrehijo.charAt(x));
-                String cpadre = Character.toString(nombrepadre.charAt(x));
+                String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase();
+                String cpadre = Character.toString(nombrepadre.charAt(x)).toUpperCase();
                 if (chijo.compareTo(cpadre)>0){
                     comparacion = true;
                 }
@@ -521,9 +520,15 @@ public class BinaryTree<V> {
         
         return comparacion;
     }
+    
+    public void inOrder(BinaryTree<V> raiz){
+        if (raiz != null){
+            inOrder(raiz.getLeftChild());
+            System.out.println(raiz.getValue());
+            inOrder(raiz.getRightChild());
+        }
+    }
+    
+    
 }
 
-/*if (line.charAt(x) != 44){
-                            if (idioma==true){ //se obtiene char por char para formar palabra
-                                char c = line.charAt(x);
-                                buildpalabrain.append(c);*/
