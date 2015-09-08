@@ -524,17 +524,16 @@ public class BinaryTree<V> {
     }
     
     public void inOrder(BinaryTree<V> raiz){
-        //TreeMap shoot = (TreeMap) raiz.getValue();
-        /*System.out.println("INORDER");
-        System.out.println("Padre mayor: " + raiz.getValue() + "\n");
-        System.out.println("Left child: " + raiz.getLeftChild() + "\n");
-        System.out.println("Right chuld: " + raiz.getRightChild() + "\n");*/
-        
         if (raiz != null){
             inOrder(raiz.getLeftChild());
             System.out.println(raiz.getValue());
             inOrder(raiz.getRightChild());
         }
     }
+    
+    public void buscar(String oracion){
+        
+    }
+    
 }
 

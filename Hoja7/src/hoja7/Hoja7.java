@@ -105,8 +105,11 @@ public class Hoja7 {
         System.out.println("############");
         root.inOrder(root);
         System.out.println("############");
-        for(int t=1;t<contador;t++){
-           // root.buscar(hojastree[t]);
+        
+        String oracion[] = new String[3]; //palabras de la oracion que se tiene en el archivo
+        int contadororacion=3; //numero de palabras que se tienen
+        for(int t=0;t<contadororacion;t++){
+           root.buscar(oracion[t]);
         }         
         
         root.print();
