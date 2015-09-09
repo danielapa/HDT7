@@ -56,10 +56,10 @@ public class Hoja7Test {
         String palabraespL = "perro";
         
         arreglo[0] = new TreeMap();
-        arreglo[0].put(palabrain,palabraesp);
+        arreglo[0].put(palabraesp,palabrain);
         
         arreglo[1] = new TreeMap();
-        arreglo[1].put(palabrainL,palabraespL);
+        arreglo[1].put(palabraespL,palabrainL);
         
         //se crea la raiz del arbol
         System.out.println("--");
@@ -77,11 +77,47 @@ public class Hoja7Test {
     
     @Test
     public void testSearch() {
-
-        boolean expResult;
-        boolean result;
         
-        //assertEquals(expResult, result);        
+        
+        Map arreglo[] = new TreeMap[3]; //se crea un map con cada una de las palabras
+        
+        String palabrain = "cat";
+        String palabraesp = "gato";
+        String palabrainL = "dog";
+        String palabraespL = "perro";
+        String palabrainLL = "star";
+        String palabraespLL = "estrella";
+        
+        arreglo[0] = new TreeMap();
+        arreglo[0].put(palabraesp,palabrain);
+        
+        arreglo[1] = new TreeMap();
+        arreglo[1].put(palabraespL,palabrainL);
+        
+        arreglo[2] = new TreeMap();
+        arreglo[2].put(palabraespLL,palabrainLL);
+        
+        
+        //se crea la raiz del arbol
+        System.out.println("--");
+        BinaryTree<Map>[] hojastree; //se crean hojas con el numero de palabras restantes
+        hojastree = new BinaryTree[2];
+        BinaryTree<Map> root = new BinaryTree<>(arreglo[1]);
+        
+        hojastree[0] = new BinaryTree(arreglo[0]);
+        hojastree[1] = new BinaryTree(arreglo[2]);
+        root.insertar(root,hojastree[0]);
+        root.insertar(root,hojastree[1]);              
+        
+        String palabra = "computer";
+        String expResult = null; //Que no se encuentra en el arbol
+        
+        String result = root.buscar(root, palabra);
+        System.out.println("expResult: " + expResult);
+        System.out.println("Result: " + result);
+
+
+        assertEquals(expResult, result);        
     }
     
 }
