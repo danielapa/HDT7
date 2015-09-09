@@ -531,31 +531,31 @@ public class BinaryTree<V> {
     
     public void inOrder(BinaryTree<V> raiz){
         if (raiz != null){
-            inOrder(raiz.getLeftChild());
+            inOrder(raiz.getLeftChild()); //Si aun no hemos llegado al leaf izquierdo, seguimos buscando ahi
             
             TreeMap palabraImprimir = (TreeMap) raiz.getValue();
             Object  objPalabra = palabraImprimir.firstKey();
-            String nombre = (String) palabraImprimir.get(objPalabra);
+            String nombre = (String) palabraImprimir.get(objPalabra); //Cuando ya llegamos, imprimimos el nodo, por lo que tomamos sus datos
             System.out.println("("+nombre+","+palabraImprimir.firstKey()+")"); //imprime palabra en ingles y en espaniol
             
-            inOrder(raiz.getRightChild());
+            inOrder(raiz.getRightChild()); //Luego de visitar el nodo, nos vamos al hijo derecho
         }
     }
     
     public String buscar(BinaryTree<V> raiz, String palabra){
-        funcionamiento = true;
+        funcionamiento = true; //Esto sirve para que cuando ya se encuentre la palabra no entre al if y ya haga el retorno de lo que se encontro
         if (funcionamiento==true){
-            if (raiz != null){
+            if (raiz != null){ //Si aun no hemos llegado a alguna leaf
 
                 if (funcionamiento == true){
-                    buscar(raiz.getLeftChild(), palabra);
+                    buscar(raiz.getLeftChild(), palabra); //Buscamos en el hijo izquierdo
                 }
                 TreeMap palabracomp = (TreeMap) raiz.getValue();
                 Object  algohijo = palabracomp.firstKey();
-                String nombrehijo = (String) palabracomp.get(algohijo);
+                String nombrehijo = (String) palabracomp.get(algohijo); //Obtenemos el nombre del hijo
 
-                String nombrehijoMay = nombrehijo.toUpperCase();
-                String palabraMay = palabra.toUpperCase();
+                String nombrehijoMay = nombrehijo.toUpperCase(); //Lo pasamos a mayusculas para la comparacion
+                String palabraMay = palabra.toUpperCase(); //Lo pasamos a mayusculas para la comparacion
                 
                 if (nombrehijoMay.equals(palabraMay)){ //si la palabra en ingles es igual a una encontrada en el tree, se traslada a espaniol
                     Object algoespanol = palabracomp.firstKey();
@@ -564,11 +564,11 @@ public class BinaryTree<V> {
                     
                 }
                 if (funcionamiento == true){
-                    buscar(raiz.getRightChild(), palabra);
+                    buscar(raiz.getRightChild(), palabra); //Buscamos en el hijo derecho
                 }
 
             }
-            if ((raiz == null) && (funcionamiento == true)){
+            if ((raiz == null) && (funcionamiento == true)){ //Si llegamos al final y no encontramos nada, retornamos null
                 retorno = null;
             }
         }
