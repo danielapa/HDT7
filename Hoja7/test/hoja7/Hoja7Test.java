@@ -81,7 +81,7 @@ public class Hoja7Test {
         boolean expResult;
         boolean result;
         
-        assertEquals(expResult, result);        
+        //assertEquals(expResult, result);        
     }
     
 }
