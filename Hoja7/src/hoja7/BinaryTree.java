@@ -446,7 +446,7 @@ public class BinaryTree<V> {
         this.setRightChild(temp);
     }
     
-    public void insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
+    public boolean insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
         boolean mayor = papa.compareTo(papa, subarbol);
         if(mayor==true){ //si papa es mayor que el subarbol, se agrega del lado izquierdo
             if(papa.getLeftChild()==null){
@@ -471,6 +471,7 @@ public class BinaryTree<V> {
                 insertar(papa,subarbol);
             }
         }
+        return true;
     }
         
     public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){

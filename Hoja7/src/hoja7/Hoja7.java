@@ -34,7 +34,6 @@ public class Hoja7 {
              lines = 0;
              while (br2.readLine() != null) lines++;
              br2.close();
-             System.out.println("Largo del archivo: " + lines + "\n");
          }
          catch (IOException e){
 
@@ -70,8 +69,8 @@ public class Hoja7 {
                     String palabrain = buildpalabrain.toString();
                     String palabraes = buildpalabraes.toString();
                     //Imprimimos las palabras
-                    System.out.println("Palabra en ingles: " + palabrain);
-                    System.out.println("Palabra en espanol: " + palabraes);
+                    //System.out.println("Palabra en ingles: " + palabrain);
+                    //System.out.println("Palabra en espanol: " + palabraes);
                     palabras[contador][1] = palabrain; //agregan palabras en array que contiene en espaniol e ingles
                     palabras[contador][0] = palabraes;
                     contador++;
@@ -105,11 +104,11 @@ public class Hoja7 {
         
         System.out.println("Palabras Ordenadas:");
         root.inOrder(root);
-        System.out.println("############");
+        //System.out.println("############");
         
-        root.print();
+        //root.print();
         
-        System.out.println("\n Traductada \n");
+        System.out.println("\n Texto Traducido \n");
         
         //Segundo reader
         File archivo = new File("texto.txt");
