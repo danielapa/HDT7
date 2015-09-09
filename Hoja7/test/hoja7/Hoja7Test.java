@@ -74,4 +74,14 @@ public class Hoja7Test {
         
         assertEquals(expResult, result);        
     }
+    
+    @Test
+    public void testSearch() {
+
+        boolean expResult;
+        boolean result;
+        
+        assertEquals(expResult, result);        
+    }
+    
 }
