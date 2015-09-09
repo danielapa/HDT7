@@ -68,9 +68,7 @@ public class Hoja7 {
                     }
                     String palabrain = buildpalabrain.toString();
                     String palabraes = buildpalabraes.toString();
-                    //Imprimimos las palabras
-                    //System.out.println("Palabra en ingles: " + palabrain);
-                    //System.out.println("Palabra en espanol: " + palabraes);
+
                     palabras[contador][1] = palabrain; //agregan palabras en array que contiene en espaniol e ingles
                     palabras[contador][0] = palabraes;
                     contador++;
@@ -88,7 +86,7 @@ public class Hoja7 {
         
         for(int y=0; y<contador; y++){
             arreglo[y] = new TreeMap();
-            arreglo[y].put(palabras[y][0], palabras[y][1]);
+            arreglo[y].put(palabras[y][0], palabras[y][1]); //se agregan las palabras al maps
         }
         
         //se crea la raiz del arbol
@@ -104,9 +102,6 @@ public class Hoja7 {
         
         System.out.println("Palabras Ordenadas:");
         root.inOrder(root);
-        //System.out.println("############");
-        
-        //root.print();
         
         System.out.println("\n Texto Traducido \n");
         
@@ -119,11 +114,8 @@ public class Hoja7 {
             try {
                 for(String line; (line = br2.readLine()) != null; ){
                     for (int x = 0; x<line.length(); x++){
-                       // System.out.println("Last char: " + line.charAt(line.length()-1));
-                        //System.out.println(line);
                         
-                        //contadorpal = 0;
-                        if (line.charAt(x)!= 32){
+                        if (line.charAt(x)!= 32){ //si todavia no se ha llegado a un enter, se forma la palabra
                             char d = line.charAt(x);
                             buildpalabra.append(d);
                             contadorpal++;
@@ -133,17 +125,17 @@ public class Hoja7 {
                             //mandamos la palabra
                             String palabramandada = buildpalabra.toString();
                             String busqueda = root.buscar(root, palabramandada);
+                            buildpalabra = new StringBuilder(); //Reseteamos el StringBuilder
 
                             if (busqueda == null){
-                                System.out.print(" *" + palabramandada + "* ");
+                                System.out.print(" *" + palabramandada + "* "); //si no se tiene la traduccion, se imprime palabra en ingles
                             }
                             else {
-                                System.out.print(" "+busqueda+" ");
+                                System.out.print(" "+busqueda+" "); //si se tiene la traduccion, se imprime palabra en espaniol
                             }
-                            buildpalabra = new StringBuilder(); //Reseteamos el StringBuilder
                             contadorpal = 0;
                         }
-                        if( (x == (line.length()-1)) && (line.charAt(line.length()-1) != 32)){
+                        if( (x == (line.length()-1)) && (line.charAt(line.length()-1) != 32)){ //utilizado para la palabra al final de la oracion
                             String palabramandada = buildpalabra.toString();
                             String busqueda = root.buscar(root, palabramandada);
                             if (busqueda == null){
@@ -152,6 +144,7 @@ public class Hoja7 {
                             else {
                                 System.out.print(" "+busqueda+" ");
                             }
+                            buildpalabra = new StringBuilder(); //Reseteamos el StringBuilder
                         }
                         
                     }

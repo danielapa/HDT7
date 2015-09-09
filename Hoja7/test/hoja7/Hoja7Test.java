@@ -48,7 +48,6 @@ public class Hoja7Test {
      */
     @Test
     public void testInsert() {
-        
         Map arreglo[] = new TreeMap[2]; //se crea un map con cada una de las palabras
         
         String palabrain = "cat";
@@ -74,7 +73,5 @@ public class Hoja7Test {
         boolean result = root.insertar(root,hojastree[0]);
         
         assertEquals(expResult, result);        
-        
     }
-    
 }

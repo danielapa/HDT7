@@ -446,17 +446,25 @@ public class BinaryTree<V> {
         this.setRightChild(temp);
     }
     
+    /*
+    *Algoritmos y Estructuras de Datos
+    *Seccion 30
+    *Juan Diego Benitez - 14124
+    *Daniela Pocasangre - 14162
+    *Insertar palabras en arbol y buscarlas dentro del mismo en InOrder.
+    */
+    
+    //insertar palabra en arbol
     public boolean insertar(BinaryTree<V> papa, BinaryTree<V> subarbol){
         boolean mayor = papa.compareTo(papa, subarbol);
         if(mayor==true){ //si papa es mayor que el subarbol, se agrega del lado izquierdo
             if(papa.getLeftChild()==null){
                 papa.setLeftChild(subarbol);
-                
             }
             else{
                 BinaryTree<V> temp = papa.getLeftChild(); //Guardamos el nuevo papa 
-                papa = temp;
-                insertar(papa,subarbol);
+                papa = temp; //temporal
+                insertar(papa,subarbol); //se vuelve a realizar insertar para agregar palabra al siguiente papa
             }
         }
         
@@ -474,19 +482,20 @@ public class BinaryTree<V> {
         return true;
     }
         
+    //Realizar el compareTo dependiendo de las ramas mandadas
+    
     public boolean compareTo(BinaryTree<V> padre, BinaryTree<V> hijo){
-        //boolean comparacion = true;
-        if((hijo.getValue()==null) || (padre.getValue()==null))
+        if((hijo.getValue()==null) || (padre.getValue()==null)) //si el padre o el hijo son null, no se hace nada
         {
             
         }
         
         else{
-            TreeMap palabrapadre = (TreeMap) padre.getValue();
+            TreeMap palabrapadre = (TreeMap) padre.getValue(); //se obtiene el valor almacenado dentro del binaryTree
             TreeMap palabrahijo = (TreeMap) hijo.getValue();
             
-            Object  algohijo = palabrahijo.firstKey();
-            String nombrehijo = (String) palabrahijo.get(algohijo);
+            Object  algohijo = palabrahijo.firstKey(); //se obtiene la key del valor (palabra en espaniol)
+            String nombrehijo = (String) palabrahijo.get(algohijo); //se obtiene el valor relacionado con la key (palabra en ingles)
 
             Object  algopadre = palabrapadre.firstKey();
             String nombrepadre = (String) palabrapadre.get(algopadre);
@@ -501,15 +510,15 @@ public class BinaryTree<V> {
             }
 
             for (int x = 0; x<largofor; x++){
-                String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase();
+                String chijo = Character.toString(nombrehijo.charAt(x)).toUpperCase(); //se coloca en mayusculas las palabras para que no importe al momento de comparar el ASCII
                 String cpadre = Character.toString(nombrepadre.charAt(x)).toUpperCase();
 
                 if (chijo.compareTo(cpadre)>0){
-                    comparacion = false;
+                    comparacion = false; //si el padre es menor al hijo, se regresa false
                     break;
                 }
                 else if (chijo.compareTo(cpadre)<0){
-                    comparacion = true;
+                    comparacion = true; //si el padre es mayor al hijo, se regresa true
                     break;
                 }
                 else {
@@ -527,7 +536,7 @@ public class BinaryTree<V> {
             TreeMap palabraImprimir = (TreeMap) raiz.getValue();
             Object  objPalabra = palabraImprimir.firstKey();
             String nombre = (String) palabraImprimir.get(objPalabra);
-            System.out.println("("+nombre+","+palabraImprimir.firstKey()+")");
+            System.out.println("("+nombre+","+palabraImprimir.firstKey()+")"); //imprime palabra en ingles y en espaniol
             
             inOrder(raiz.getRightChild());
         }
@@ -548,7 +557,7 @@ public class BinaryTree<V> {
                 String nombrehijoMay = nombrehijo.toUpperCase();
                 String palabraMay = palabra.toUpperCase();
                 
-                if (nombrehijoMay.equals(palabraMay)){
+                if (nombrehijoMay.equals(palabraMay)){ //si la palabra en ingles es igual a una encontrada en el tree, se traslada a espaniol
                     Object algoespanol = palabracomp.firstKey();
                     retorno = (String) algoespanol;
                     funcionamiento = false;
